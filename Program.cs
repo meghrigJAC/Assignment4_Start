@@ -31,7 +31,8 @@ namespace Assignment4_Start
                 Smartphone s1 = new Smartphone(2023, "iphone 13", 100, 512, 0);
                 Smartphone s2 = new Smartphone(2023, "iphone 13", 100, 256, 0);
                 Smartphone s3 = new Smartphone(2023, "iphone 12", 100, 256, 0);
-                
+
+
                 phones.Add(s);
                 phones.Add(s1);
                 phones.Add(s2);

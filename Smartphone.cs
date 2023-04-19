@@ -23,6 +23,7 @@ namespace Assignment4_Start
         //Default constuctor
         public Smartphone()
         {
+           //_yearModel = 0;
             YearModel = FIRST_MOBILE_YEAR;
             Make = string.Empty;
             BatteryLevel = 0;
@@ -112,7 +113,7 @@ namespace Assignment4_Start
         public void InstallApp(ushort size)
         {
             if (UsedCapacity + size > StorageCapacity)
-                throw new InvalidOperationException("Not enough storage space");
+                throw new InvalidOperationException("Not enough storage space" );
 
             _usedCapacity += size;
 
@@ -134,7 +135,7 @@ namespace Assignment4_Start
         //Charges battery if <100
         public void ChargeBattery()
         {
-            if (BatteryLevel < 100)
+            if (BatteryLevel < FULLY_CHARGED)
                 BatteryLevel++;
         }
         //Discharges battery if >0
