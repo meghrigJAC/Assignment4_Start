@@ -23,14 +23,35 @@ namespace Assignment4_Start
             //Loop over the list and display every object's information.
             //Example: 
 
-            Smartphone s = new Smartphone(2023, "iphone 14", 100, 256, 0);
-            Console.WriteLine(s);
-            Smartphone s1 = new Smartphone(2023, "iphone 13", 100, 512, 0);
-            Console.WriteLine(s1);
-            Smartphone s2 = new Smartphone(2023, "iphone 13", 100, 256, 0);
-            Console.WriteLine(s2);
-            Smartphone s3 = new Smartphone(2023, "iphone 12", 100, 256, 0);
-            Console.WriteLine(s3);
+            try
+            {
+                List<Smartphone> phones = new List<Smartphone>();
+
+                Smartphone s = new Smartphone(2023, "iphone 14", 100, 256, 0);
+                Smartphone s1 = new Smartphone(2023, "iphone 13", 100, 512, 0);
+                Smartphone s2 = new Smartphone(2023, "iphone 13", 100, 256, 0);
+                Smartphone s3 = new Smartphone(2023, "iphone 12", 100, 256, 0);
+                
+                phones.Add(s);
+                phones.Add(s1);
+                phones.Add(s2);
+                phones.Add(s3);
+                foreach (Smartphone phone in phones)
+                    Console.WriteLine(phone.ToString());
+
+            }
+            catch(ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

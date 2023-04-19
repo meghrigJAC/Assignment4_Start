@@ -20,6 +20,7 @@ namespace Assignment4_Start
 
 
         #region CONSTRUCTORS
+        //Default constuctor
         public Smartphone()
         {
             YearModel = FIRST_MOBILE_YEAR;
@@ -28,7 +29,7 @@ namespace Assignment4_Start
             StorageCapacity = 0;
             _usedCapacity = 0;
         }
-
+        //Parameterized constuctor
         public Smartphone(ushort yearModel_, string make_, byte batterylevel_, float storageCapacity_)
         {
             YearModel = yearModel_;
@@ -37,7 +38,7 @@ namespace Assignment4_Start
             StorageCapacity = storageCapacity_;
             _usedCapacity = 0;
         }
-
+        //Parameterized constuctor
         public Smartphone(ushort yearModel_, string make_, byte batterylevel_, float storageCapacity_, float usedCapacity_)
         {
             YearModel = yearModel_;
@@ -50,6 +51,7 @@ namespace Assignment4_Start
         #endregion
 
         #region PROPERTIES
+        //YearModel property throws an exception if year < FIRST_MOBILE_YEAR or > now
         public ushort YearModel
         {
             get { return _yearModel; }
@@ -63,12 +65,14 @@ namespace Assignment4_Start
             }
         }
 
+        //Make property
         public string Make
         {
             get { return _make; }
             set { _make = value; }
         }
 
+        //Battery level property throws an exception if level < 0 or > FULLY_CHARGED
         public byte BatteryLevel
         {
             get { return _batteryLevel; }
@@ -82,6 +86,7 @@ namespace Assignment4_Start
             }
         }
 
+        // Storage capacity property throws an exception if capacity > MAX_CAPACITY 
         public float StorageCapacity
         {
             get { return _storageCapacity; }
@@ -95,6 +100,7 @@ namespace Assignment4_Start
             }
         }
 
+        //Read only used capacity property
         public float UsedCapacity
         {
             get { return _usedCapacity; }
@@ -102,7 +108,7 @@ namespace Assignment4_Start
         #endregion
 
         #region Methods
-
+        // Checks if there is still space to install an app, updates the capacity used. Throws an exception if enough space is not available
         public void InstallApp(ushort size)
         {
             if (UsedCapacity + size > StorageCapacity)
@@ -112,6 +118,8 @@ namespace Assignment4_Start
 
 
         }
+        // Checks if there is still space to install an app, updates the capacity used. Throws an exception if enough space is not available
+        //Method overloading with the above method
         public void InstallApp(float size)
         {
             if (UsedCapacity + size > StorageCapacity)
@@ -123,13 +131,13 @@ namespace Assignment4_Start
 
         }
 
-
+        //Charges battery if <100
         public void ChargeBattery()
         {
             if (BatteryLevel < 100)
                 BatteryLevel++;
         }
-
+        //Discharges battery if >0
         public void DischargeBattery()
         {
 
@@ -138,7 +146,7 @@ namespace Assignment4_Start
 
         }
 
-
+        //ToStringmethod overriden
         public override string ToString()
         {
             return $"Year Model: {YearModel} Make: {Make} Battery Level: {BatteryLevel} Storage Capacity: {StorageCapacity} Used Capacity: {UsedCapacity}";
